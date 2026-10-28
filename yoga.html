@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Wellness | Yoga & Meditation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8f2;
+            color: #35483d;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #e1ecdf;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38634b;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #35483d;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #739c76;
+        }
+
+        .hero {
+            min-height: 430px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            flex-wrap: wrap;
+            background: #eaf0e5;
+        }
+
+        .hero-content {
+            flex: 1 1 300px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 50px);
+            line-height: 1.2;
+            color: #315a42;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #527c5b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #315a42;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 430px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #315a42;
+            margin-bottom: 12px;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin: 0 auto 35px;
+            max-width: 650px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(40, 70, 45, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: #38634b;
+            margin-bottom: 10px;
+        }
+
+        .meditation {
+            background: #e9efe5;
+        }
+
+        .schedule {
+            background: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 550px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #d8e2d6;
+            text-align: center;
+        }
+
+        th {
+            background: #527c5b;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f1f6ef;
+        }
+
+        .price {
+            font-size: 28px;
+            color: #527c5b;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin: 12px 0;
+        }
+
+        .contact {
+            background: #e1ecdf;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #315a42;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #b77b43;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">🌿 Serene Wellness</div>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#yoga">Yoga</a>
+            <a href="#meditation">Meditation</a>
+            <a href="#instructors">Instructors</a>
+            <a href="#schedule">Classes</a>
+            <a href="#membership">Membership</a>
+            <a href="#articles">Articles</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Find Your Balance, Find Your Peace</h1>
+                <p>
+                    Welcome to Serene Wellness, your peaceful space
+                    for yoga, meditation, mindfulness, and a healthier
+                    lifestyle. Take a breath and begin your wellness journey.
+                </p>
+                <a href="#membership" class="btn">Explore Membership</a>
+            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80"
+                alt="Person practicing yoga in a peaceful setting">
+        </section>
+        <section id="yoga">
+            <h2 class="section-title">Explore Yoga Poses</h2>
+            <p class="section-intro">
+                Discover simple yoga practices that support flexibility,
+                balance, relaxation, and body awareness.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=700&q=80"
+                         alt="Yoga practice in a calm environment">
+                    <div class="card-content">
+                        <h3>Mountain Pose</h3>
+                        <p>Focus on standing steadily, comfortable posture,
+                           and mindful breathing.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1562088287-bde35a1ea917?auto=format&fit=crop&w=700&q=80"
+                         alt="Person practicing a yoga stretch">
+                    <div class="card-content">
+                        <h3>Tree Pose</h3>
+                        <p>Practice balance and concentration while standing
+                           comfortably and steadily.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80"
+                         alt="Peaceful yoga and mindfulness practice">
+                    <div class="card-content">
+                        <h3>Child's Pose</h3>
+                        <p>A gentle resting posture that can help you slow
+                           down and relax.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="meditation" id="meditation">
+            <h2 class="section-title">Meditation Techniques</h2>
+            <p class="section-intro">
+                Make a little time every day to pause, breathe, and reconnect
+                with the present moment.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="card-content">
+                        <h3>🌬️ Mindful Breathing</h3>
+                        <p>Sit comfortably and notice your natural breathing.
+                           When your attention wanders, gently return to
+                           your breath.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content">
+                        <h3>🧘 Guided Meditation</h3>
+                        <p>Follow a calm spoken guide that helps you focus
+                           your attention and settle into the present.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content">
+                        <h3>🌱 Body Awareness</h3>
+                        <p>Notice sensations throughout your body without
+                           judging them. Adjust your position whenever needed.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Instructor Profiles -->
+        <section id="instructors">
+            <h2 class="section-title">Meet Our Instructors</h2>
+            <p class="section-intro">
+                Learn with supportive instructors who encourage mindful
+                movement and personal growth.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80"
+                         alt="Portrait of yoga instructor Ananya">
+                    <div class="card-content">
+                        <h3>Ananya Sharma</h3>
+                        <p><strong>Yoga Instructor</strong></p>
+                        <p>Focuses on beginner-friendly yoga, posture,
+                           and gentle movement.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+                         alt="Portrait of meditation instructor Rahul">
+                    <div class="card-content">
+                        <h3>Rahul Verma</h3>
+                        <p><strong>Meditation Coach</strong></p>
+                        <p>Guides mindfulness, breathing, and relaxation
+                           sessions.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80"
+                         alt="Portrait of wellness instructor Meera">
+                    <div class="card-content">
+                        <h3>Meera Reddy</h3>
+                        <p><strong>Wellness Coach</strong></p>
+                        <p>Encourages healthy routines and a balanced
+                           approach to everyday wellbeing.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="schedule" id="schedule">
+            <h2 class="section-title">Weekly Class Schedule</h2>
+            <p class="section-intro">
+                Choose a session that fits your routine.
+                The timings below are sample classes.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Class</th>
+                            <th>Time</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Beginner Yoga</td>
+                            <td>7:00 AM</td>
+                            <td>Ananya</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Mindful Meditation</td>
+                            <td>6:00 PM</td>
+                            <td>Rahul</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Gentle Yoga</td>
+                            <td>7:00 AM</td>
+                            <td>Ananya</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Relaxation Session</td>
+                            <td>6:00 PM</td>
+                            <td>Meera</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Mindfulness</td>
+                            <td>9:00 AM</td>
+                            <td>Rahul</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Membership Plans -->
+        <section id="membership">
+            <h2 class="section-title">Membership Plans</h2>
+            <p class="section-intro">
+                Choose a plan that suits your wellness goals.
+                Prices are examples for this website design.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="card-content">
+                        <h3>Basic</h3>
+                        <p class="price">₹499/month</p>
+                        <ul>
+                            <li>4 yoga classes per month</li>
+                            <li>Beginner meditation sessions</li>
+                            <li>Wellness article library</li>
+                        </ul>
+                        <a href="#contact" class="btn">Choose Basic</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content">
+                        <h3>Standard</h3>
+                        <p class="price">₹999/month</p>
+                        <ul>
+                            <li>12 yoga classes per month</li>
+                            <li>Guided meditation sessions</li>
+                            <li>Wellness workshops</li>
+                        </ul>
+                        <a href="#contact" class="btn">Choose Standard</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content">
+                        <h3>Premium</h3>
+                        <p class="price">₹1499/month</p>
+                        <ul>
+                            <li>Unlimited regular classes</li>
+                            <li>Personal wellness guidance</li>
+                            <li>Priority workshop access</li>
+                        </ul>
+                        <a href="#contact" class="btn">Choose Premium</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="articles" class="meditation">
+            <h2 class="section-title">Wellness Articles</h2>
+            <p class="section-intro">
+                Simple ideas to help you build mindful, balanced daily routines.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=80"
+                         alt="Sunlight over a peaceful natural landscape">
+                    <div class="card-content">
+                        <h3>Build a Morning Routine</h3>
+                        <p>Start with gentle movement, a glass of water,
+                           and a few quiet moments before your day begins.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80"
+                         alt="A peaceful mindfulness setting">
+                    <div class="card-content">
+                        <h3>The Art of Mindfulness</h3>
+                        <p>Explore ways to bring your attention to everyday
+                           activities and the present moment.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80"
+                         alt="Person enjoying a fitness and wellness practice">
+                    <div class="card-content">
+                        <h3>Make Time to Move</h3>
+                        <p>Discover how gentle, enjoyable movement can become
+                           part of your daily routine.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <h2 class="section-title">Begin Your Wellness Journey</h2>
+            <p>Have questions about classes or memberships?</p>
+            <p>Email: hello@serenewellness.example</p>
+            <p>Phone: +91 98765 43210</p>
+            <a href="mailto:hello@serenewellness.example" class="btn">
+                Contact Us
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Serene Wellness. All rights reserved.</p>
+        <p>Breathe deeply. Move gently. Live mindfully.</p>
+    </footer>
+
+</body>
+</html>

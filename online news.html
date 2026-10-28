@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News - Online News Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #102b46;
+            color: white;
+            padding: 22px 6%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #d5e3f1;
+            margin-top: 5px;
+        }
+
+        nav {
+            background: #d62828;
+            padding: 13px 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe08a;
+        }
+
+        .breaking-news {
+            background: #fff0f0;
+            border-left: 5px solid #d62828;
+            padding: 14px 6%;
+            font-weight: bold;
+        }
+
+        .breaking-news span {
+            background: #d62828;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+
+        main {
+            max-width: 1250px;
+            margin: auto;
+            padding: 25px 20px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: #102b46;
+            border-bottom: 3px solid #d62828;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .featured {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+
+        .featured-main,
+        .featured-side,
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .featured-main img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 20px;
+        }
+
+        .category {
+            display: inline-block;
+            background: #d62828;
+            color: white;
+            padding: 4px 9px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h2, h3 {
+            line-height: 1.35;
+        }
+
+        .featured-content h2 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .featured-content p,
+        .news-content p {
+            color: #555;
+        }
+
+        .author {
+            font-size: 13px;
+            color: #777;
+            margin-top: 12px;
+        }
+
+        .featured-side {
+            padding: 18px;
+        }
+
+        .side-story {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .side-story:last-child {
+            border-bottom: none;
+        }
+
+        .side-story h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .side-story p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 17px;
+        }
+
+        .news-content h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 a {
+            text-decoration: none;
+            color: #102b46;
+        }
+
+        .news-content h3 a:hover {
+            color: #d62828;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .category-box ul {
+            list-style: none;
+        }
+
+        .category-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .category-box li:last-child {
+            border-bottom: none;
+        }
+
+        .category-box a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .category-box a:hover {
+            color: #d62828;
+        }
+
+        .newsletter {
+            background: #e4edf6;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter h2 {
+            color: #102b46;
+            margin-bottom: 10px;
+        }
+
+        .newsletter input {
+            padding: 12px;
+            width: min(300px, 100%);
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            margin: 10px 5px;
+        }
+
+        .newsletter button {
+            padding: 12px 20px;
+            background: #d62828;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .newsletter button:hover {
+            background: #a51d1d;
+        }
+
+        footer {
+            background: #102b46;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer a {
+            color: #ffcccc;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📰 DAILY NEWS</h1>
+        <p>Your Trusted Source for the Latest Updates</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#national">National</a>
+        <a href="#international">International</a>
+        <a href="#sports">Sports</a>
+        <a href="#technology">Technology</a>
+        <a href="#business">Business</a>
+    </nav>
+    <div class="breaking-news">
+        <span>TOP STORY</span>
+        Explore the latest headlines from around the world.
+    </div>
+
+    <main id="home">
+        <section>
+            <h2 class="section-title">Featured Stories</h2>
+
+            <div class="featured">
+
+                <article class="featured-main">
+                    <img
+                        src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1000&q=80"
+                        alt="Newspapers representing journalism and current affairs">
+
+                    <div class="featured-content">
+                        <span class="category">NATIONAL</span>
+                        <h2>India's Changing Landscape: Important Developments to Watch</h2>
+                        <p>
+                            Discover the major policy discussions, community
+                            initiatives, and public developments shaping
+                            conversations across the country.
+                        </p>
+                        <div class="author">
+                            By Editorial Team | October 28, 2026
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="featured-side">
+                    <h2>Top Headlines</h2>
+
+                    <article class="side-story">
+                        <span class="category">WORLD</span>
+                        <h3>Global Leaders Discuss Cooperation and Growth</h3>
+                        <p>By News Desk | 10 min read</p>
+                    </article>
+
+                    <article class="side-story">
+                        <span class="category">TECH</span>
+                        <h3>New Digital Tools Transform Everyday Work</h3>
+                        <p>By Priya Kumar | 5 min read</p>
+                    </article>
+
+                    <article class="side-story">
+                        <span class="category">SPORTS</span>
+                        <h3>Young Athletes Prepare for Major Competitions</h3>
+                        <p>By Sports Desk | 4 min read</p>
+                    </article>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- National News -->
+        <section id="national">
+            <h2 class="section-title">🇮🇳 National News</h2>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=700&q=80"
+                        alt="Historic Indian architecture">
+                    <div class="news-content">
+                        <span class="category">NATIONAL</span>
+                        <h3><a href="#national">Cities Explore Sustainable Development</a></h3>
+                        <p>Communities examine greener transport, public spaces,
+                           and sustainable urban planning.</p>
+                        <div class="author">By Anil Sharma | 6 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80"
+                        alt="Modern office and workspace">
+                    <div class="news-content">
+                        <span class="category">EDUCATION</span>
+                        <h3><a href="#national">Digital Learning in Modern Classrooms</a></h3>
+                        <p>Schools and colleges explore technology-supported
+                           learning experiences.</p>
+                        <div class="author">By Neha Rao | 4 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=700&q=80"
+                        alt="Green forest and natural environment">
+                    <div class="news-content">
+                        <span class="category">ENVIRONMENT</span>
+                        <h3><a href="#national">Community Projects Focus on Nature</a></h3>
+                        <p>Local groups promote tree planting and environmental
+                           awareness initiatives.</p>
+                        <div class="author">By R. Mehta | 5 min read</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- International News -->
+        <section id="international">
+            <h2 class="section-title">🌍 International News</h2>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=700&q=80"
+                        alt="International government building">
+                    <div class="news-content">
+                        <span class="category">WORLD</span>
+                        <h3><a href="#international">Countries Discuss Global Partnerships</a></h3>
+                        <p>International discussions focus on cooperation,
+                           development, and shared priorities.</p>
+                        <div class="author">By World Desk | 7 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
+                        alt="Mountain landscape">
+                    <div class="news-content">
+                        <span class="category">CLIMATE</span>
+                        <h3><a href="#international">Protecting Natural Landscapes</a></h3>
+                        <p>Conservation projects highlight the importance of
+                           protecting ecosystems.</p>
+                        <div class="author">By Maya Singh | 5 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=700&q=80"
+                        alt="City buildings and urban life">
+                    <div class="news-content">
+                        <span class="category">GLOBAL</span>
+                        <h3><a href="#international">How Cities Are Evolving</a></h3>
+                        <p>Urban communities adapt to changing lifestyles,
+                           mobility, and infrastructure needs.</p>
+                        <div class="author">By World Desk | 4 min read</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sports News -->
+        <section id="sports">
+            <h2 class="section-title">🏆 Sports News</h2>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=700&q=80"
+                        alt="Cricket stadium during a match">
+                    <div class="news-content">
+                        <span class="category">CRICKET</span>
+                        <h3><a href="#sports">Cricket Fans Look Forward to New Matches</a></h3>
+                        <p>Supporters prepare for exciting fixtures and
+                           competitive performances.</p>
+                        <div class="author">By Sports Desk | 4 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"
+                        alt="Athlete running on a track">
+                    <div class="news-content">
+                        <span class="category">ATHLETICS</span>
+                        <h3><a href="#sports">Athletes Focus on Training and Fitness</a></h3>
+                        <p>Consistent preparation remains central to
+                           athletic performance.</p>
+                        <div class="author">By Sports Reporter | 3 min read</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=700&q=80"
+                        alt="Football players on a field">
+                    <div class="news-content">
+                        <span class="category">FOOTBALL</span>
+                        <h3><a href="#sports">Football Communities Celebrate the Game</a></h3>
+                        <p>Teams and fans build excitement around the
+                           world's popular sport.</p>
+                        <div class="author">By Sports Desk | 5 min read</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Technology and Business -->
+        <div class="two-column">
+
+            <section class="category-box" id="technology">
+                <h2 class="section-title">💻 Technology</h2>
+                <ul>
+                    <li>
+                        <a href="#technology">Artificial Intelligence in Daily Life</a>
+                        <div class="author">By Tech Desk | 5 min read</div>
+                    </li>
+                    <li>
+                        <a href="#technology">The Future of Digital Education</a>
+                        <div class="author">By Kavita Rao | 4 min read</div>
+                    </li>
+                    <li>
+                        <a href="#technology">Cybersecurity and Online Safety</a>
+                        <div class="author">By Tech Desk | 6 min read</div>
+                    </li>
+                    <li>
+                        <a href="#technology">Innovations in Mobile Technology</a>
+                        <div class="author">By Arjun Das | 3 min read</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="category-box" id="business">
+                <h2 class="section-title">📈 Business</h2>
+                <ul>
+                    <li>
+                        <a href="#business">Small Businesses Explore New Markets</a>
+                        <div class="author">By Business Desk | 5 min read</div>
+                    </li>
+                    <li>
+                        <a href="#business">Understanding Personal Finance</a>
+                        <div class="author">By Finance Desk | 4 min read</div>
+                    </li>
+                    <li>
+                        <a href="#business">Startups and Entrepreneurship</a>
+                        <div class="author">By Business Desk | 6 min read</div>
+                    </li>
+                    <li>
+                        <a href="#business">Trends in the Global Economy</a>
+                        <div class="author">By Market Desk | 7 min read</div>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get news highlights and stories delivered to your inbox.</p>
+
+            <form action="#" method="get">
+                <label for="email">Email address:</label>
+                <br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 Daily News. All Rights Reserved.</p>
+        <p>
+            <a href="#home">Home</a> |
+            <a href="#national">National</a> |
+            <a href="#international">International</a> |
+            <a href="#technology">Technology</a>
+        </p>
+        <p>Informing people. Connecting the world.</p>
+    </footer>
+
+</body>
+</html>
